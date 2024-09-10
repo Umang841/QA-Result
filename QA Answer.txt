@@ -1,0 +1,62 @@
+package NewPractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class qaprogram {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub 
+		
+		WebDriver driver;  //It is a programming interface that can be used to create and execute test cases. 
+		
+		String url = "https://app.germanyiscalling.com/common/login/";  // URL(UNIFORM RESOURCE LOCATOR).
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umang\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe\\"); 
+		//CHROMEDRIVER PULGIN PATH
+
+		driver = new ChromeDriver();  //CHROMEDRIVER PULGIN.
+		
+		driver.get(url);  //TO FETCH THE URL.
+		
+		
+		driver.findElement(By.id("username")).sendKeys("umangsrivastav18@gmail.com"); //TO SEND THE DETAILS FOR MAIL ID.
+		
+		Thread.sleep(1500); // TO suspends the current thread for a specified amount of time in milliseconds.
+		
+		driver.findElement(By.id("password")).sendKeys("shivamgo2#");  // TO SEND THE DETAILS FOR PASSWORD.
+		Thread.sleep(1500);
+		
+		driver.findElement(By.xpath("//button[@type='submit']")).click(); // To Click on the LOGIN BUTTON.
+		Thread.sleep(2000);
+		
+
+		String mess = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText(); 
+		//To select or fetch the message displayed on passing the wrong credentials.
+
+		System.out.println(mess); //Print the message in console.
+		
+		Thread.sleep(1500);
+		
+		driver.findElement(By.id("username")).sendKeys("umangsrivastav18@gmail.com");
+		Thread.sleep(1500);
+		
+		driver.findElement(By.id("password")).sendKeys("shivamgo@12");
+		Thread.sleep(1500);
+		
+
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(1500);
+		
+		driver.close(); //To close all the tabs open in window.
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
